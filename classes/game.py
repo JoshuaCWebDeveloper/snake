@@ -8,7 +8,7 @@ from .levels import *
 from .messages import Messages
 from .high_scores import HighScores
 
-class Game:
+class Game(object):
     """ Represents instance of the game.
     A new game can be created by creating a new instance of this class.
     """
