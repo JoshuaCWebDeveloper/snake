@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<strings>
+    <string id="play001continue">Press Space to Continue</string>
+    <string id="play002levelup">Level Complete</string>
+    <string id="play003gameover">Game Over, press space to restart</string>
+    <string id="info001score">Score</string>
+    <string id="info002mice">Mice</string>
+    <string id="info003complete">Level Complete!</string>
+    <string id="info004bonus">Bonus Mode! x2</string>
+    <string id="info005lives">Lives</string>
+</strings>
