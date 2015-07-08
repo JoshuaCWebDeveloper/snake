@@ -179,6 +179,7 @@ class Game(object):
         self.levels.append(Level_02(self))
         self.levels.append(Level_03(self))
         self.levels.append(Level_04(self))
+        self.levels.append(Level_05(self))
         # Load level 1
         self.current_level = 0
         self.get_level().load()
