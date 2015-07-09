@@ -454,3 +454,48 @@ class Level_07(Level):
             [game.WHITE, [self.bcx-100, self.bcy+150], [200, 20]],
             [game.WHITE, [self.bcx-170, self.bcy-100], [20, 200]]
         ])
+
+
+class Level_08(Level):
+    """ Level 08:
+        - Player:
+            - standard length
+            - bottom right corner
+            - speed of 6
+            - acceleration of .10
+        - 10 mice
+        - 30 mice to finish
+        - Wall layout:
+            
+                |    
+            ---   ---    
+                |
+    
+    """
+    
+    def __init__(self, game):
+        # Call parent constructor, color black
+        super().__init__(game, game.NAVY, game.FOREST)
+        
+        # set player size, position, speed
+        self.player_props["size"] = [100, 10]
+        # place at bottom left corner
+        px = self.b_size[0] - self.player_props["size"][0] - 30
+        py = self.b_size[1] - self.player_props["size"][1] - 20
+        self.player_props["pos"] = [px, py]
+        self.player_props["speed"] = 6
+        self.player_props["accel"] = .10
+        # set number of mice
+        self.num_mice = 10
+        # set number of mice required to finish
+        self.mice_finish = 30
+        # define walls [color, [x, y], [width, height]]
+        c = game.FOREST
+        vl = (self.b_size[1]-220) // 2
+        hl = (self.b_size[0]-220) // 2
+        self.walls_list.extend([
+            [c, [self.bcx-10, 0],            [20, vl]],
+            [c, [self.bcx+110, self.bcy-10], [hl, 20]],
+            [c, [self.bcx-10, self.bcy+110], [20, vl]],
+            [c, [0, self.bcy-10],            [hl, 20]]
+        ])
