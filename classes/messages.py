@@ -11,7 +11,7 @@ class Messages (object):
         # create default font
         self.font = pygame.font.SysFont("serif", 25)
         # Load the text for the game
-        Text.load()
+        Text.load(game.cwd+'/')
     
     def render_text (self, txt, color, font=False):
         """ Creates a PyGame surface with the text rendered on it
