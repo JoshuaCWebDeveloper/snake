@@ -1,6 +1,5 @@
-# May use pygame and math modules
-import pygame
-import math
+# Import modules
+import pygame, math, os, sys
 # Import classes
 from .events import Events
 from .panel import Panel
@@ -46,6 +45,9 @@ class Game(object):
         fps --      (int) Frames per second (.g. speed) of the game
         pygclock -- (object -- pygame.time.Clock) Used for setting the FPS
         """
+        # set and store current working directory
+        os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
+        self.cwd = os.getcwd()
         self.title = title
         # If we weren't given a clock
         if pygclock is False:
