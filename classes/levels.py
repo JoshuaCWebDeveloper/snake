@@ -18,6 +18,9 @@ class Level(object):
         self.game = game
         # Create easy reference to board size
         self.b_size = self.game.BOARD_SIZE
+        # Calculate center of screen
+        self.bcx = self.b_size[0]/2
+        self.bcy = self.b_size[1]/2
         # set colors
         if color is False:
             color = game.BLACK
