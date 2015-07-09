@@ -247,8 +247,28 @@ class Player(object):
                     # there is no more length to remove
                     length = 0
         
+        # Use the front 10 pixels (thickness) of our head to detect collisions
+        # Calculate the position of the front of our head
+        # Start with the position of our head
+        front_pos = [head.rect.x, head.rect.y]
+        # If we are moving  right
+        if head.direction == "right":
+            # Add our length to our x position
+            front_pos[0] += (head.length-10)
+        # Else, if we are moving down
+        elif head.direction == "down":
+            # Add our length to our y position
+            front_pos[1] += (head.length-10)
+        # Create a sprite to represent our front
+        front = pygame.sprite.Sprite()
+        # Make it a square the size of our thickness
+        front.image = pygame.Surface([self.thickness, self.thickness])
+        # Use our calculated position
+        front.rect = front.image.get_rect()
+        front.rect.x = front_pos[0]
+        front.rect.y = front_pos[1]
         # Check and see if we have collided with any mice (remove hit mice)
-        mouse_hits = pygame.sprite.spritecollide(head, self.game.get_level().mice, True)
+        mouse_hits = pygame.sprite.spritecollide(front, self.game.get_level().mice, True)
         # Loop through hit mice
         for m in mouse_hits:
             # Count mice
@@ -264,9 +284,8 @@ class Player(object):
                 tail.move_pos([-self.GROW_LENGTH, 0])
             # create new mouse
             self.game.get_level().create_mouse()
-        
         # Check and see if our head has collided with a wall or ourselves
-        collisions = pygame.sprite.spritecollide(head, self.game.get_level().collideables, False)
+        collisions = pygame.sprite.spritecollide(front, self.game.get_level().collideables, False)
         # If we have
         if collisions:
             # If the level is complete
