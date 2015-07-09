@@ -208,7 +208,7 @@ class Game(object):
         # draw level
         self.get_level().draw(self.board)
         # Fade out level, don't fade message
-        self.fade_out([self.board], [message], 2)
+        self.fade_out([self.board], [message], 1)
         # Pause game
         self.paused = True
         # Update level
@@ -220,7 +220,7 @@ class Game(object):
         self.screen.blit(self.panel, self.PANEL_POS)
         # draw and fade in new level
         self.get_level().draw(self.board)
-        self.fade_in([self.board], [message], 2)
+        self.fade_in([self.board], [message], 4)
                 
     def process_events (self):
         """ Processes all of the in game events.
