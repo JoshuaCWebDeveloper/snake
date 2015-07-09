@@ -79,7 +79,7 @@ class Game(object):
         # initialize messages
         self.messages = Messages(self)
         # initialize high scores list
-        self.high_scores = HighScores()
+        self.high_scores = HighScores(self.cwd+'/')
         # initialize structure
         self.board = False
         self.panel = False
