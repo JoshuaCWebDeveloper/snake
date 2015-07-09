@@ -17,15 +17,16 @@ class HighScores(object):
     
     max_scores = 15
     
-    def __init__(self, location=False):
+    def __init__(self, directory='', location=False):
         """ Reads the high scores from the file at the specified location.
+        directory --    (str) The directory to prepend to the location
         location --     (str) (optional) The location of the high scores db
         """
         # Store location
         if location:
-            self.filename = location
+            self.filename = directory + location
         else:
-            self.filename = "data/scores.dat"
+            self.filename = directory + "data/scores.dat"
         # initialize window
         self.root = None
         self.open = False
