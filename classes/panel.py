@@ -47,6 +47,14 @@ class Panel(pygame.Surface):
         scr_cx = msgs.center(scr, size, True, False)
         # copy to panel, centered top
         panel.blit(scr, [scr_cx, 10])
+        # create level
+        lvl = msgs.render_text(
+            "{{STRID|info006level}}: {0}".format(self.game.current_level+1),
+            txt_color,
+            arial
+        )
+        # copy to panel, top right corner
+        panel.blit(lvl, [25, 15])
         # create lives
         liv = msgs.render_text(
             "{{STRID|info005lives}}: {0}".format(self.game.lives),
