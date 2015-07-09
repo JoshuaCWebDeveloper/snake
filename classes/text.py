@@ -6,10 +6,13 @@ _strings = {}
 class Text(object):
     """ Module that handles fetching and outputting text for the game. """
     
-    def load():
-        """ Loads the strings for our game and stores them in memory. """
+    def load(directory=''):
+        """ Loads the strings for our game and stores them in memory.
+        directory --    (string) The location of the data directory
+        returns --      (None)
+        """
         # load the strings from the xml file
-        tree = ET.parse('data/strings.xml')
+        tree = ET.parse(directory+'data/strings.xml')
         strs = tree.getroot()
         # loop through the strings
         for s in strs:
