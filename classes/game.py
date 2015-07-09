@@ -277,7 +277,9 @@ class Game(object):
         fades --     (list) A list of PyGame surfaces to fade
         direction -- (str) "in" or "out" (If not "in", assumes "out")
         noFades --   (list) A list of PyGame surfaces that don't fade
-        speed --    (int) The speed of the fade. 1 is slowest, 255 is no fade
+        speed --     (int) (1-255) The speed of the fade. 1 is slowest,
+                           255 is no fade. 2 is twice as fast as 1. A speed
+                           higher than (255 * 24)/Game.fps is no discernible fade
         returns --  (none)
         """
         # Create surfaces to store graphics
@@ -311,9 +313,7 @@ class Game(object):
     
     def fade_in(self, fades=[], noFades=[], speed=5):
         """ Take a PyGame Surface and slowly fade it in.
-        fades --     (list) A list of PyGame surfaces to fade
-        noFades --   (list) A list of PyGame surfaces that don't fade
-        speed --    (int) The speed of the fade. 1 is slowest, 255 is no fade
+        args -- fades(list), noFades(list), speed(int) See Game._fade docstring.
         returns --  (none)
         """
         # Use internal fade method, uses internal game loop
@@ -321,9 +321,7 @@ class Game(object):
         
     def fade_out(self, fades=[], noFades=[], speed=5):
         """ Take a PyGame Surface and slowly fade it out.
-        fades --     (list) A list of PyGame surfaces to fade
-        noFades --   (list) A list of PyGame surfaces that don't fade
-        speed --    (int) The speed of the fade. 1 is slowest, 255 is no fade
+        args -- fades(list), noFades(list), speed(int) See Game._fade docstring.
         returns --  (none)
         """
         # Use internal fade method, uses internal game loop
