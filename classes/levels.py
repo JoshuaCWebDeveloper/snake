@@ -293,7 +293,7 @@ class Level_04(Level):
             - left center
             - speed of 5
             - acceleration of .03
-        - 10 mice
+        - 15 mice
         - 60 mice to finish
         - Wall layout:
                     
@@ -317,7 +317,7 @@ class Level_04(Level):
         self.player_props["speed"] = 5
         self.player_props["accel"] = .03
         # set number of mice
-        self.num_mice = 10
+        self.num_mice = 15
         # set number of mice required to finish
         self.mice_finish = 60
         # define walls [color, [x, y], [width, height]]
