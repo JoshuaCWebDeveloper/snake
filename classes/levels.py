@@ -499,3 +499,53 @@ class Level_08(Level):
             [c, [self.bcx-10, self.bcy+110], [20, vl]],
             [c, [0, self.bcy-10],            [hl, 20]]
         ])
+
+
+class Level_09(Level):
+    """ Level 09:
+        - Player:
+            - standard length
+            - center
+            - speed of 4
+            - acceleration of .04
+        - 15 mice
+        - 75 mice to finish
+        - Wall layout:
+            
+            __  __  __      
+           |          |
+           |__  __  __|   
+    
+    """
+    
+    def __init__(self, game):
+        # Call parent constructor, color black
+        super().__init__(game, game.NAVY, game.MAROON)
+        
+        # set player size, position, speed
+        self.player_props["size"] = [100, 10]
+        # place at center
+        px = self.bcx - self.player_props["size"][0]/2
+        py = self.bcy - self.player_props["size"][1]/2
+        self.player_props["pos"] = [px, py]
+        self.player_props["speed"] = 4
+        self.player_props["accel"] = .04
+        # set number of mice
+        self.num_mice = 15
+        # set number of mice required to finish
+        self.mice_finish = 75
+        # define walls [color, [x, y], [width, height]]
+        c = game.MAROON
+        # use loops to create walls
+        walls = []
+        for i in range(6):
+            a = i*100
+            walls.append(    [c, [self.bcx-275+a, 75],                [50, 20]])
+            walls.append(    [c, [self.bcx-275+a, self.b_size[1]-95], [50, 20]])
+            # only four of these
+            if i < 4:
+                walls.append([c, [75, self.bcy-175+a],                [20, 50]])
+                walls.append([c, [self.b_size[0]-95, self.bcy-175+a], [20, 50]])
+        self.walls_list.extend(walls)
+        
+        
