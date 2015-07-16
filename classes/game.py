@@ -290,9 +290,9 @@ class Game(object):
         # Create surfaces to store graphics
         fade = pygame.Surface(self.BOARD_SIZE)
         noFade = pygame.Surface(self.BOARD_SIZE)
-        # Make no fade transparent
-        noFade.fill(self.BLACK)
-        noFade.set_colorkey(self.BLACK)
+        # Make fade transparent
+        fade.fill(self.BLACK)
+        fade.set_colorkey(self.BLACK)
         # add fades to fade surface
         for s in fades:
             fade.blit(s, [0, 0])
@@ -308,8 +308,8 @@ class Game(object):
             # Fill the board with fill color
             self.board.fill(self.colors["fill"])
             # Copy surfaces to screen
-            self.board.blit(fade, [0, 0])
             self.board.blit(noFade, [0, 0])
+            self.board.blit(fade, [0, 0])
             self.screen.blit(self.board, self.BOARD_POS)
             # update graphics
             pygame.display.flip()
