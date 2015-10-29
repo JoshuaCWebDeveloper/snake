@@ -176,16 +176,11 @@ class Game(object):
         self.board = pygame.Surface(self.BOARD_SIZE)
         self.panel = Panel(self)
         # Create levels
-        self.levels = []
-        self.levels.append(Level_01(self))
-        self.levels.append(Level_02(self))
-        self.levels.append(Level_03(self))
-        self.levels.append(Level_04(self))
-        self.levels.append(Level_05(self))
-        self.levels.append(Level_06(self))
-        self.levels.append(Level_07(self))
-        self.levels.append(Level_08(self))
-        self.levels.append(Level_09(self))
+        self.levels = [
+            Level_01(self), Level_02(self), Level_03(self), Level_04(self),
+            Level_05(self), Level_06(self), Level_07(self), Level_08(self),
+            Level_09(self)
+        ]
         # Load level 1
         self.current_level = 0
         self.get_level().load()
