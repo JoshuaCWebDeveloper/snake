@@ -213,7 +213,7 @@ class Game(object):
         # draw level
         self.get_level().draw(self.board)
         # Fade out level, don't fade message
-        self.fade_out([self.board], [message], 1)
+        self.fade_out([self.board], [message], 4)
         # Pause game
         self.paused = True
         # Update level
@@ -225,7 +225,7 @@ class Game(object):
         self.screen.blit(self.panel, self.PANEL_POS)
         # draw and fade in new level
         self.get_level().draw(self.board)
-        self.fade_in([self.board], [message], 4)
+        self.fade_in([self.board], [message], 1)
                 
     def process_events (self):
         """ Processes all of the in game events.
@@ -276,15 +276,13 @@ class Game(object):
         # update the graphics
         pygame.display.flip()
         
-    def _fade(self, fades=[], direction="out", noFades=[], speed=5):
+    def _fade(self, fades=[], direction="out", noFades=[], speed=1.5):
         """ Take a PyGame Surface and slowly fade it in or out.
         This runs an internal game loop for the duration of the fade.
         fades --     (list) A list of PyGame surfaces to fade
         direction -- (str) "in" or "out" (If not "in", assumes "out")
         noFades --   (list) A list of PyGame surfaces that don't fade
-        speed --     (int) (1-255) The speed of the fade. 1 is slowest,
-                           255 is no fade. 2 is twice as fast as 1. A speed
-                           higher than (255 * 24)/Game.fps is no discernible fade
+        speed --     (float) The number of seconds for the fade to last
         returns --  (none)
         """
         # Create surfaces to store graphics
@@ -299,10 +297,17 @@ class Game(object):
         # add no fades to noFade surface
         for s in noFades:
             noFade.blit(s, [0, 0])
+        # Calculate number of frames for the fade to last
+        frames = math.ceil(speed * self.fps)
+        # Calculate how to spread 255 over our number of frames
+        step = 255/frames
+        # Iterate for each frame
         # -- Start internal game loop --
-        for i in range(0, 256, speed):
+        for i in range(0, frames):
+            # Determine our current alpha for this frame based on step
+            a = math.ceil(i * step)
             # Set alpha (fade in our out)
-            alpha = (0 + i) if direction == "in" else (255 - i) 
+            alpha = (0 + a) if direction == "in" else (255 - a) 
             # Set fade level for fade surface
             fade.set_alpha(alpha)
             # Fill the board with fill color
@@ -316,7 +321,7 @@ class Game(object):
             # tick clock
             self.update_clock()
     
-    def fade_in(self, fades=[], noFades=[], speed=5):
+    def fade_in(self, fades=[], noFades=[], speed=1.5):
         """ Take a PyGame Surface and slowly fade it in.
         args -- fades(list), noFades(list), speed(int) See Game._fade docstring.
         returns --  (none)
@@ -324,7 +329,7 @@ class Game(object):
         # Use internal fade method, uses internal game loop
         self._fade(fades, "in", noFades, speed)
         
-    def fade_out(self, fades=[], noFades=[], speed=5):
+    def fade_out(self, fades=[], noFades=[], speed=1.5):
         """ Take a PyGame Surface and slowly fade it out.
         args -- fades(list), noFades(list), speed(int) See Game._fade docstring.
         returns --  (none)
