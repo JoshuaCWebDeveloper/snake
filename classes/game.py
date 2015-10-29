@@ -311,6 +311,8 @@ class Game(object):
             self.board.blit(noFade, [0, 0])
             self.board.blit(fade, [0, 0])
             self.screen.blit(self.board, self.BOARD_POS)
+            # flush events so program stays responsive
+            pygame.event.get()
             # update graphics
             pygame.display.flip()
             # tick clock
