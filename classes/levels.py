@@ -122,8 +122,7 @@ class Level(object):
         # If we have completed this level
         if self.complete:
             # Keep speeding the player up
-            frame_change = .05 / self.game.fps
-            self.player.change_velocity(frame_change)
+            self.player.change_velocity(.05)
             # If we have enough mice for a new life
             if self.next_life >= self.life_value:
                 # Give us a life

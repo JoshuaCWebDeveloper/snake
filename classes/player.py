@@ -16,7 +16,7 @@ class Player(object):
         game --         (object -- Game) reference to the game
         position --     (list -- int) x, y coordinates of snake's top left corner
         size  --        (list -- int) starting length, thickness dimensions of snake
-        velocity --     (int) the starting spped of the player
+        velocity --     (int) the starting speed of the player in pixels per second
         """
         # call parent Sprite constructor
         super().__init__()
@@ -29,8 +29,8 @@ class Player(object):
             "pos": position,
             "length": size[0]
         }
-        # set velocity
-        self.velocity = velocity
+        # set velocity relative to framerate
+        self.velocity = velocity / game.fps
         # create new player
         self._new(position, size[0])
         
@@ -346,8 +346,9 @@ class Player(object):
       
     def change_velocity(self, change):
         """ Changes the velocity of the player.
-        change --   (int) The amount to increase the velocity by.
+        change --   (int) The amount to increase the velocity by in pixesl per second.
         returns --  (none)
         """
-        self.velocity += change
+        # Make change relative to framerate
+        self.velocity += change / self.game.fps
         
