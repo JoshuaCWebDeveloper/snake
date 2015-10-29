@@ -169,8 +169,8 @@ class Level_01(Level):
         - Player:
             - standard length
             - at center
-            - speed of 4
-            - acceleration of .03
+            - speed of 240
+            - acceleration of 1.8
         - 10 mice
         - 75 mice to finish
         - Base wall layout
@@ -186,8 +186,8 @@ class Level_01(Level):
         cx = self.game.BOARD_SIZE[0]/2 - self.player_props["size"][0]/2
         cy = self.game.BOARD_SIZE[1]/2 - self.player_props["size"][1]/2
         self.player_props["pos"] = [cx, cy]
-        self.player_props["speed"] = 4
-        self.player_props["accel"] = .03
+        self.player_props["speed"] = 240
+        self.player_props["accel"] = 1.8
         # set number of mice
         self.num_mice = 10
         # set number of mice required to finish
@@ -200,8 +200,8 @@ class Level_02(Level):
         - Player:
             - standard length
             - at center
-            - speed of 3
-            - acceleration of .05
+            - speed of 180
+            - acceleration of 3.0
         - 10 mice
         - 50 mice to finish
         - Wall layout:
@@ -224,8 +224,8 @@ class Level_02(Level):
         cx = self.game.BOARD_SIZE[0]/2 - self.player_props["size"][0]/2
         cy = self.game.BOARD_SIZE[1]/2 - self.player_props["size"][1]/2
         self.player_props["pos"] = [cx, cy]
-        self.player_props["speed"] = 3
-        self.player_props["accel"] = .05
+        self.player_props["speed"] = 180
+        self.player_props["accel"] = 3.0
         # set number of mice
         self.num_mice = 10
         # set number of mice required to finish
@@ -251,8 +251,8 @@ class Level_03(Level):
         - Player:
             - long length
             - below center
-            - speed of 5
-            - acceleration of .05
+            - speed of 300
+            - acceleration of 3.0
         - 10 mice
         - 40 mice to finish
         - Wall layout:
@@ -272,8 +272,8 @@ class Level_03(Level):
         # calculate center of screen
         cx = self.game.BOARD_SIZE[0]/2 - self.player_props["size"][0]/2
         self.player_props["pos"] = [cx, self.game.BOARD_SIZE[1]-50]
-        self.player_props["speed"] = 5
-        self.player_props["accel"] = .05
+        self.player_props["speed"] = 300
+        self.player_props["accel"] = 3.0
         # set number of mice
         self.num_mice = 10
         # set number of mice required to finish
@@ -293,8 +293,8 @@ class Level_04(Level):
         - Player:
             - standard length
             - left center
-            - speed of 5
-            - acceleration of .03
+            - speed of 300
+            - acceleration of 1.8
         - 15 mice
         - 60 mice to finish
         - Wall layout:
@@ -316,8 +316,8 @@ class Level_04(Level):
         cx = bcx - self.player_props["size"][0] - 30
         cy = self.b_size[1]/2 - self.player_props["size"][1]/2
         self.player_props["pos"] = [cx, cy]
-        self.player_props["speed"] = 5
-        self.player_props["accel"] = .03
+        self.player_props["speed"] = 300
+        self.player_props["accel"] = 1.8
         # set number of mice
         self.num_mice = 15
         # set number of mice required to finish
@@ -333,8 +333,8 @@ class Level_05(Level):
         - Player:
             - standard length
             - center
-            - speed of 3
-            - acceleration of .02
+            - speed of 180
+            - acceleration of 1.2
         - 15 mice
         - 55 mice to finish
         - Wall layout:
@@ -359,8 +359,8 @@ class Level_05(Level):
         cx = bcx - self.player_props["size"][0]/2
         cy = bcy - self.player_props["size"][1]/2
         self.player_props["pos"] = [cx, cy]
-        self.player_props["speed"] = 3
-        self.player_props["accel"] = .02
+        self.player_props["speed"] = 180
+        self.player_props["accel"] = 1.2
         # set number of mice
         self.num_mice = 15
         # set number of mice required to finish
@@ -377,8 +377,8 @@ class Level_06(Level):
         - Player:
             - long length
             - below center
-            - speed of 3
-            - acceleration of .06
+            - speed of 180
+            - acceleration of 3.6
         - 10 mice
         - 65 mice to finish
         - Wall layout:
@@ -399,8 +399,8 @@ class Level_06(Level):
         # calculate player position off of screen center
         cx = self.bcx - self.player_props["size"][0]/2
         self.player_props["pos"] = [cx, self.b_size[1]-50]
-        self.player_props["speed"] = 3
-        self.player_props["accel"] = .06
+        self.player_props["speed"] = 180
+        self.player_props["accel"] = 3.6
         # set number of mice
         self.num_mice = 10
         # set number of mice required to finish
@@ -418,8 +418,8 @@ class Level_07(Level):
         - Player:
             - short length
             - center
-            - speed of 4
-            - acceleration of .06
+            - speed of 240
+            - acceleration of 3.6
         - 10 mice
         - 70 mice to finish
         - Wall layout:
@@ -440,8 +440,8 @@ class Level_07(Level):
         cx = self.bcx - self.player_props["size"][0]/2
         cy = self.bcy - self.player_props["size"][1]/2
         self.player_props["pos"] = [cx, cy]
-        self.player_props["speed"] = 4
-        self.player_props["accel"] = .06
+        self.player_props["speed"] = 240
+        self.player_props["accel"] = 3.6
         # set number of mice
         self.num_mice = 10
         # set number of mice required to finish
@@ -460,8 +460,8 @@ class Level_08(Level):
         - Player:
             - standard length
             - bottom right corner
-            - speed of 6
-            - acceleration of .10
+            - speed of 360
+            - acceleration of 6.0
         - 10 mice
         - 30 mice to finish
         - Wall layout:
@@ -482,8 +482,8 @@ class Level_08(Level):
         px = self.b_size[0] - self.player_props["size"][0] - 30
         py = self.b_size[1] - self.player_props["size"][1] - 20
         self.player_props["pos"] = [px, py]
-        self.player_props["speed"] = 6
-        self.player_props["accel"] = .10
+        self.player_props["speed"] = 360
+        self.player_props["accel"] = 6.0
         # set number of mice
         self.num_mice = 10
         # set number of mice required to finish
@@ -505,8 +505,8 @@ class Level_09(Level):
         - Player:
             - standard length
             - center
-            - speed of 4
-            - acceleration of .04
+            - speed of 240
+            - acceleration of 2.4
         - 15 mice
         - 75 mice to finish
         - Wall layout:
@@ -527,8 +527,8 @@ class Level_09(Level):
         px = self.bcx - self.player_props["size"][0]/2
         py = self.bcy - self.player_props["size"][1]/2
         self.player_props["pos"] = [px, py]
-        self.player_props["speed"] = 4
-        self.player_props["accel"] = .04
+        self.player_props["speed"] = 240
+        self.player_props["accel"] = 2.4
         # set number of mice
         self.num_mice = 15
         # set number of mice required to finish
