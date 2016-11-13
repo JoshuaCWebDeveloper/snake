@@ -42,7 +42,7 @@ class Game(object):
     def __init__ (self, title, pygclock=False, fps=False):
         """
         title --    (str) Used to title game window
-        fps --      (int) Frames per second (.g. speed) of the game
+        fps --      (int) Frames per second (e.g. speed) of the game
         pygclock -- (object -- pygame.time.Clock) Used for setting the FPS
         """
         # set and store current working directory
