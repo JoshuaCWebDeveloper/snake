@@ -70,12 +70,15 @@ class Segment(pygame.sprite.Sprite):
         vector --   (list) x, y values, the amount to move the segment right/down
         returns --  (object) The new real position
         """
+        #x = self.rect.x
+        #y = self.rect.y
         # update the real position
         self.realPos["x"] += vector[0]
         self.realPos["y"] += vector[1]
         # use the real position to update rect
         self.rect.x = math.floor(self.realPos["x"])
         self.rect.y = math.floor(self.realPos["y"])
+        #print (vector, [self.rect.x-x, self.rect.y-y])
         # return the real position
         return self.realPos
      

@@ -36,6 +36,7 @@ class Player(object):
         
     def resurrect (self):
         """ Removes the current player, and creates a new player at same speed."""
+        #print ("resurrect")
         # draw level without player
         self.game.get_level().draw(self.game.board, False)
         # draw current player with transparent background
@@ -45,6 +46,7 @@ class Player(object):
         self.draw(player)
         # fade out player
         self.game.fade_out([player], [self.game.board])
+        #print ("finish fade out")
         # remove player segments from collideables
         self.game.get_level().collideables.remove(self.segments)
         # reset player
@@ -52,6 +54,7 @@ class Player(object):
         # draw new player
         player.fill(self.game.BLACK)
         self.draw(player)
+        #print ("start fade in")
         # fade in player
         self.game.fade_in([player], [self.game.board])
         # pause game
@@ -269,6 +272,8 @@ class Player(object):
         front.rect.y = front_pos[1]
         # Check and see if we have collided with any mice (remove hit mice)
         mouse_hits = pygame.sprite.spritecollide(front, self.game.get_level().mice, True)
+        # DEBUG
+        # mouse_hits.append(1)
         # Loop through hit mice
         for m in mouse_hits:
             # Count mice
